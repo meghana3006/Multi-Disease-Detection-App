@@ -80,7 +80,7 @@ if app_mode == "Home":
         with col2:
             st.image(image, width=500)
     except FileNotFoundError:
-        st.error(f"Image dorakatledu! Looking for: {img_path}")
+        st.error(f"Image not found! Looking for: {img_path}")
 
 
 elif app_mode == "Diabetes Detection":
@@ -98,6 +98,7 @@ elif app_mode == "Lung Cancer Detection":
 
 elif app_mode == "PCOD Detection":
     pcod.run()
+
 
 
 
