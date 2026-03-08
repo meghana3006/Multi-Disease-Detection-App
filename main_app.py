@@ -60,11 +60,27 @@ if app_mode == "Home":
     from PIL import Image
 
 
-    image = Image.open("picture1.jpg")   # your image file name
-    col1, col2, col3 = st.columns([1,6,1])
+    # image = Image.open("picture1.jpg")   # your image file name
+    # col1, col2, col3 = st.columns([1,6,1])
 
+    # with col2:
+    #     st.image("picture1.jpg", width=500)
+
+    import os
+
+# Get the path of the current script
+script_dir = os.path.dirname(__file__)
+# Create the full path to the image
+img_path = os.path.join(script_dir, "picture1.jpg")
+
+# Open and display the image using the full path
+try:
+    image = Image.open(img_path)
+    col1, col2, col3 = st.columns([1, 6, 1])
     with col2:
-        st.image("picture1.jpg", width=500)
+        st.image(image, width=500)
+except FileNotFoundError:
+    st.error(f"Image dorakatledu! Looking for: {img_path}")
 
 
 elif app_mode == "Diabetes Detection":
@@ -82,5 +98,6 @@ elif app_mode == "Lung Cancer Detection":
 
 elif app_mode == "PCOD Detection":
     pcod.run()
+
 
 
