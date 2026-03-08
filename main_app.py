@@ -82,7 +82,6 @@ if app_mode == "Home":
     else:
         st.error(f"Image not found! Looking for: {img_path}")
         st.write("these are the files belong to folder")
-        st.write("os.listdir(script_dir"))
 
 
 elif app_mode == "Diabetes Detection":
@@ -100,6 +99,7 @@ elif app_mode == "Lung Cancer Detection":
 
 elif app_mode == "PCOD Detection":
     pcod.run()
+
 
 
 
