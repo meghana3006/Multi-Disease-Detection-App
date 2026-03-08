@@ -74,13 +74,15 @@ if app_mode == "Home":
     img_path = os.path.join(script_dir, "picture1.jpg")
 
     # Open and display the image using the full path
-    try:
+    if os.path.exists(img_path):
         image = Image.open(img_path)
         col1, col2, col3 = st.columns([1, 6, 1])
         with col2:
             st.image(image, width=500)
-    except FileNotFoundError:
+    else:
         st.error(f"Image not found! Looking for: {img_path}")
+        st.write("these are the files belong to folder")
+        st.write("os.listdir(script_dir"))
 
 
 elif app_mode == "Diabetes Detection":
@@ -98,6 +100,7 @@ elif app_mode == "Lung Cancer Detection":
 
 elif app_mode == "PCOD Detection":
     pcod.run()
+
 
 
 
